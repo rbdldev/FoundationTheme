@@ -227,8 +227,8 @@ namespace Foundation
                         .Add(new Text("Generated with ❤️ using "))
                         .Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")))
                 .Add(new Paragraph()
-                        .Add(new A("Datenschutz").Href("/legal/datenschutz").Style("padding-right: 20px;"))
-                        .Add(new A("Impressum").Href("/legal/impressum")))
+                        .Add(new A("Datenschutz - Privacy").Href("/legal/datenschutz").Style("padding-right: 20px;"))
+                        .Add(new A("Impressum - Legal Notice").Href("/legal/impressum")))
 
                 .Render();
             }
