@@ -5,7 +5,7 @@ namespace Foundation
 {
     public class FoundationHtmlFactory : IHtmlFactory
     {
-        public string ResourcePaths
+        public string CssPath
         {
             get { return Path.Combine(@"D:\OneDrive\Developer\Foundation", "styles.css"); }
         }
