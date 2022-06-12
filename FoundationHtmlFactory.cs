@@ -5,9 +5,13 @@ namespace Foundation
 {
     public class FoundationHtmlFactory : IHtmlFactory
     {
-        public string CssPath
+        public string ResourcesPath
         {
-            get { return Path.Combine(@"D:\OneDrive\Developer\Foundation", "styles.css"); }
+            get
+            {
+                string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                return Path.Combine(path, "Resources");
+            }
         }
 
         private IWebsite website;
@@ -19,6 +23,11 @@ namespace Foundation
         public void WithWebsite(IWebsite website)
         {
             this.website = website;
+        }
+
+        public string MakeHeadHtml()
+        {
+            return "<link rel =\"stylesheet\" href=\"/styles.css\">";
         }
 
         public string MakeIndexHtml(IWebsite website)
