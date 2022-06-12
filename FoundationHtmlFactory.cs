@@ -5,6 +5,17 @@ namespace Foundation
 {
     public class FoundationHtmlFactory : IHtmlFactory
     {
+        public string Email { get; set; }
+        public string Linkedin { get; set; }
+        public string Github { get; set; }
+
+        public FoundationHtmlFactory()
+        {
+            this.Email      = string.Empty;
+            this.Linkedin   = string.Empty;
+            this.Github     = string.Empty;
+        }
+        
         public string ResourcesPath
         {
             get
@@ -44,7 +55,7 @@ namespace Foundation
             items.Reverse();
             items = items.GetRange(0, showArticles);
 
-            return new HTML().Add(new SiteHeader(website))
+            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github))
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
                                             .Class("welcomeWrapper"))
@@ -58,7 +69,7 @@ namespace Foundation
 
         public string MakePageHtml(IPage page)
         {
-            return new HTML().Add(new SiteHeader(website))
+            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
@@ -74,7 +85,7 @@ namespace Foundation
             List<IItem> items = section.Items;
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new HTML().Add(new SiteHeader(website))
+            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
@@ -86,7 +97,7 @@ namespace Foundation
 
         public string MakeItemHtml(IItem item)
         {
-            return new HTML().Add(new SiteHeader(website))
+            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -104,7 +115,7 @@ namespace Foundation
         {
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new HTML().Add(new SiteHeader(website))
+            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
@@ -122,12 +133,19 @@ namespace Foundation
 
         private class SiteHeader : IHtmlComponent
         {
+            private string email;
+            private string linkedin;
+            private string github;
+
             List<string> sections;
             IWebsite website;
-            public SiteHeader(IWebsite website)
+            public SiteHeader(IWebsite website, string email, string linkedin, string github)
             {
                 this.website = website;
                 this.sections = website.MakeSectionsFor;
+                this.email = email;
+                this.linkedin = linkedin;
+                this.github = github;
             }
             public string Render()
             {
@@ -148,21 +166,49 @@ namespace Foundation
                                     )
                                 ).Class("wrapper")
                         )
-                        .Add(new SocialIcons())
+                        .Add(new SocialIcons(email: email, linkedin: linkedin, github: github))
                         .Render();
             }
         }
 
         private class SocialIcons : IHtmlComponent
         {
+            private string email;
+            private string linkedin;
+            private string github;
+
+            public SocialIcons(string email, string linkedin, string github)
+            {
+                this.email = email;
+                this.linkedin = linkedin;
+                this.github = github;
+            }
+
             public string Render()
             {
-                return new Div()
-                .Add(new A("<img src=\"/socialIcons/mail.svg\">").Href("mailto:hi@rolandbraun.com"))
-                .Add(new A("<img src=\"/socialIcons/linkedin.svg\">").Href("https://linkedin.com/in/rolandbraun-dev"))
-                .Add(new A("<img src=\"/socialIcons/github.svg\">").Href("https://github.com/rolandbraun-dev"))
-                .Class("social-icons")
-                .Render();
+                if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(linkedin) && string.IsNullOrEmpty(github))
+                {
+                    return string.Empty;
+                }
+
+                var div = new Div();
+                if (!string.IsNullOrEmpty(email))
+                {
+                    div.Add(new A("<img src=\"/socialIcons/mail.svg\">").Href($"mailto:{email}"));
+                }
+
+                if (!string.IsNullOrEmpty(linkedin))
+                {
+                    div.Add(new A("<img src=\"/socialIcons/linkedin.svg\">").Href($"{linkedin}"));
+                }
+
+                if (!string.IsNullOrEmpty(github))
+                {
+                    div.Add(new A("<img src=\"/socialIcons/github.svg\">").Href($"{github}"));
+                }
+
+                div.Class("social-icons");
+                return div.Render();
             }
         }
 
