@@ -7,7 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StatiCsharp\StatiCsharp.csproj" />
+    <ProjectReference Include="..\StatiCsharpLib\StatiCsharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\socialIcons\github.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\socialIcons\linkedin.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\socialIcons\mail.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\styles.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
