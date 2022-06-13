@@ -14,6 +14,11 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
     <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
+    <RepositoryUrl>https://github.com/rolandbraun-dev/FoundationTheme</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>StatiC#; StatiCsharp; staticsharp, theme, themes, website, template</PackageTags>
+    <PackageReleaseNotes>Initial release. This is a prerelease.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <!-- StatiC# reference -->
