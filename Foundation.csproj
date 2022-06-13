@@ -6,12 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Reference to StatiC# -->
   <ItemGroup>
     <ProjectReference Include="..\StatiCsharpLib\StatiCsharp.csproj" />
   </ItemGroup>
 
+  <!-- Output files -->
   <ItemGroup>
+    <None Update="Resources\socialIcons\facebook.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\socialIcons\github.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\socialIcons\instagram.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Resources\socialIcons\linkedin.svg">
