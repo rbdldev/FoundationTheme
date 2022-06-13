@@ -13,6 +13,7 @@
     <PackageProjectUrl>https://github.com/rolandbraun-dev/FoundationTheme</PackageProjectUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
+    <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
 
   <!-- StatiC# reference -->
