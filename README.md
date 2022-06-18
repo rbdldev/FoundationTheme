@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
     <a href="https://github.com/rolandbraun-dev/StatiCsharp">
-        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1.0-alpha3&color=informational" />
+        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1.0-alpha5&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha2-green?style=flat" />
@@ -62,3 +62,12 @@ theme.Facebook = "https://facebook.com/yourName";
 Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook and Instagram.
 
  <img src="images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
+
+To set legal noctive and/or privacy links in the footer use:
+
+```C#
+theme.LegalNotice = "/your/logalNoticePage";
+theme.Privacy = "/your/privacyPage";
+```
+
+<img src="images/legal_example.png" width="300" max-width="70%" alt="Example for legal notice" />
