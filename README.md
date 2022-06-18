@@ -61,7 +61,7 @@ theme.Facebook = "https://facebook.com/yourName";
 
 Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook and Instagram.
 
- <img src="images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
+ <img src="Images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
 
 To set legal noctive and/or privacy links in the footer use:
 
@@ -70,4 +70,4 @@ theme.LegalNotice = "/your/logalNoticePage";
 theme.Privacy = "/your/privacyPage";
 ```
 
-<img src="images/legal_example.png" width="300" max-width="70%" alt="Example for legal notice" />
+<img src="Images/legal_example.png" width="300" max-width="70%" alt="Example for legal notice" />
