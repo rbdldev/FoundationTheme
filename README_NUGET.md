@@ -7,7 +7,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha1" />
+    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha2" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
