@@ -39,26 +39,32 @@
     <ItemGroup>
 	    <Content Include="FoundationResources\socialIcons\facebook.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
 	    <Content Include="FoundationResources\socialIcons\github.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
 	    <Content Include="FoundationResources\socialIcons\instagram.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
 	    <Content Include="FoundationResources\socialIcons\linkedin.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
 	    <Content Include="FoundationResources\socialIcons\mail.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
 	    <Content Include="FoundationResources\styles.css" pack="true">
 		    <PackageCopyToOutput>true</PackageCopyToOutput>
+		    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	    </Content>
 		
     </ItemGroup>
