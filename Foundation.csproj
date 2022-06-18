@@ -1,55 +1,73 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.1.0-alpha2</Version>
-    <Authors>Roland Braun</Authors>
-    <Company>Roland Braun</Company>
-    <Copyright>MIT</Copyright>
-    <Description>A custom theme for StatiC#, a static webside generator written in C#.</Description>
-    <PackageProjectUrl>https://github.com/rolandbraun-dev/FoundationTheme</PackageProjectUrl>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
-    <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
-    <RepositoryUrl>https://github.com/rolandbraun-dev/FoundationTheme</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>StatiC#; StatiCsharp; staticsharp, theme, themes, website, template</PackageTags>
-    <PackageReleaseNotes>Initial release. This is a prerelease.</PackageReleaseNotes>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Version>0.1.0-alpha2</Version>
+        <Authors>Roland Braun</Authors>
+        <Company>Roland Braun</Company>
+        <Copyright>MIT</Copyright>
+        <Description>A custom theme for StatiC#, a static webside generator written in C#.</Description>
+        <PackageProjectUrl>https://github.com/rolandbraun-dev/FoundationTheme</PackageProjectUrl>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
+        <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
+        <RepositoryUrl>https://github.com/rolandbraun-dev/FoundationTheme</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>StatiC#; StatiCsharp; staticsharp, theme, themes, website, template</PackageTags>
+        <PackageReleaseNotes>Initial release. This is a prerelease.</PackageReleaseNotes>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
 
-  <!-- StatiC# reference -->
-  <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha3" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="FoundationResources\socialIcons\facebook.svg" />
+        <None Remove="FoundationResources\socialIcons\github.svg" />
+        <None Remove="FoundationResources\socialIcons\instagram.svg" />
+        <None Remove="FoundationResources\socialIcons\linkedin.svg" />
+        <None Remove="FoundationResources\socialIcons\mail.svg" />
+        <None Remove="FoundationResources\styles.css" />
+    </ItemGroup>
 
-  <!-- Output files -->
-  <ItemGroup>
-    <None Update="README_NUGET.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\socialIcons\facebook.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\socialIcons\github.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\socialIcons\instagram.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\socialIcons\linkedin.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\socialIcons\mail.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\styles.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <!-- StatiC# reference -->
+    <ItemGroup>
+        <PackageReference Include="StatiCsharp" Version="0.1.0-alpha5" />
+    </ItemGroup>
+
+    <!-- Output files -->
+    <ItemGroup>
+	    <Content Include="FoundationResources\socialIcons\facebook.svg">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+		</Content>
+		
+	    <Content Include="FoundationResources\socialIcons\github.svg">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+		</Content>
+		
+	    <Content Include="FoundationResources\socialIcons\instagram.svg">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+		</Content>
+		
+	    <Content Include="FoundationResources\socialIcons\linkedin.svg">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+		</Content>
+		
+	    <Content Include="FoundationResources\socialIcons\mail.svg">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+		</Content>
+		
+	    <Content Include="FoundationResources\styles.css" pack="true">
+		    <PackageCopyToOutput>true</PackageCopyToOutput>
+	    </Content>
+		
+    </ItemGroup>
+	
+    <ItemGroup>
+      <None Update="README_NUGET.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>
