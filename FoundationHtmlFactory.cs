@@ -10,14 +10,18 @@ namespace Foundation
         public string Github { get; set; }
         public string Facebook { get; set; }
         public string Instagram { get; set; }
+        public string LegalNotice { get; set; }
+        public string Privacy { get; set; }
 
         public FoundationHtmlFactory()
         {
-            this.Email      = string.Empty;
-            this.Linkedin   = string.Empty;
-            this.Github     = string.Empty;
-            this.Facebook   = string.Empty;
-            this.Instagram  = string.Empty;
+            this.Email          = string.Empty;
+            this.Linkedin       = string.Empty;
+            this.Github         = string.Empty;
+            this.Facebook       = string.Empty;
+            this.Instagram      = string.Empty;
+            this.LegalNotice    = string.Empty;
+            this.Privacy        = string.Empty;
         }
         
         public string ResourcesPath
@@ -66,7 +70,7 @@ namespace Foundation
                                     .Add(new Text("<h2>Latest Content</h2>"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer())
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
 
                     .Render();
         }
@@ -79,7 +83,7 @@ namespace Foundation
                                         .Add(new Div(page.Content)
                                             .Class("content")))
                                     .Class("wrapper"))
-                                .Add(new Footer())
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
 
                     .Render();
         }
@@ -95,7 +99,7 @@ namespace Foundation
                                 .Add(new Div()
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer())
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
                     .Render();
         }
 
@@ -111,7 +115,7 @@ namespace Foundation
                                         .Add(new Div(item.Content)
                                             .Class("content")))
                                     .Class("wrapper"))
-                                .Add(new Footer())
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
                     .Render();
         }
 
@@ -126,7 +130,7 @@ namespace Foundation
                                         .Add(new bigTag(tag)))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer())
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
                     .Render();
         }
 
@@ -297,17 +301,45 @@ namespace Foundation
 
         private class Footer : IHtmlComponent
         {
+            private string legalNotice;
+            private string privacy;
+
+            public Footer(string legalNotice, string privacy)
+            {
+                this.legalNotice = legalNotice;
+                this.privacy = privacy;
+            }
+
+            public Footer()
+            {
+                this.legalNotice = string.Empty;
+                this.privacy = string.Empty;
+            }
             public string Render()
             {
-                return new StatiCsharp.HtmlComponents.Footer()
-                .Add(new Paragraph()
+                var footer = new StatiCsharp.HtmlComponents.Footer();
+                footer.Add(new Paragraph()
                         .Add(new Text("Generated with ❤️ using "))
-                        .Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")))
-                .Add(new Paragraph()
-                        .Add(new A("Datenschutz - Privacy").Href("/legal/datenschutz").Style("padding-right: 20px;"))
-                        .Add(new A("Impressum - Legal Notice").Href("/legal/impressum")))
+                        .Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")));
 
-                .Render();
+                if (!string.IsNullOrEmpty(legalNotice) | !string.IsNullOrEmpty(privacy))
+                {
+                    var legal = new Paragraph();
+                    
+                    if (!string.IsNullOrEmpty(privacy))
+                    {
+                        legal.Add(new A("Datenschutz - Privacy").Href(privacy));
+                    }
+
+                    if (!string.IsNullOrEmpty(legalNotice))
+                    {
+                        legal.Add(new A("Impressum - Legal Notice").Href(legalNotice).Style("padding-left: 20px"));
+                    }
+
+                    footer.Add(legal);
+                }
+
+                return footer.Render();
             }
         }
     }
