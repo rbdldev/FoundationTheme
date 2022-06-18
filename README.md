@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha2-green?style=flat" />
 </p>
 
-A theme for [StatiC#](https://github.com/rolandbraun-dev/StatiCsharp), a static webside generator written in C#.
+A theme for [StatiC#](https://github.com/rolandbraun-dev/StatiCsharp), a static website generator written in C#.
 
 ## Installation
 
