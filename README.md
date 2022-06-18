@@ -18,6 +18,12 @@
 
 A theme for [StatiC#](https://github.com/rolandbraun-dev/StatiCsharp), a static website generator written in C#.
 
+## Example
+
+<p align="center">
+    <img src="Images/landing_page_example.png" max-width="90%" alt="StatiC#" />
+</p>
+
 ## Installation
 
 Add **Foundation** to your StatiC# project as a package reference in the .csproj file:
