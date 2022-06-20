@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <Version>0.1.0-alpha2</Version>
+        <Version>0.1.0-alpha3</Version>
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
@@ -22,12 +22,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="FoundationResources\socialIcons\facebook.svg" />
-        <None Remove="FoundationResources\socialIcons\github.svg" />
-        <None Remove="FoundationResources\socialIcons\instagram.svg" />
-        <None Remove="FoundationResources\socialIcons\linkedin.svg" />
-        <None Remove="FoundationResources\socialIcons\mail.svg" />
-        <None Remove="FoundationResources\styles.css" />
+        <None Remove="FoundationResources\foundation-theme\socialIcons\facebook.svg" />
+        <None Remove="FoundationResources\foundation-theme\socialIcons\github.svg" />
+        <None Remove="FoundationResources\foundation-theme\socialIcons\instagram.svg" />
+        <None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
+        <None Remove="FoundationResources\foundation-theme\socialIcons\mail.svg" />
+        <None Remove="FoundationResources\foundation-theme\styles.css" />
     </ItemGroup>
 
     <!-- StatiC# reference -->
@@ -37,32 +37,32 @@
 
     <!-- Output files -->
     <ItemGroup>
-	    <Content Include="FoundationResources\socialIcons\facebook.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\facebook.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\socialIcons\github.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\github.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\socialIcons\instagram.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\instagram.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\socialIcons\linkedin.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\linkedin.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\socialIcons\mail.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\mail.svg">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\styles.css" pack="true">
+	    <Content Include="FoundationResources\foundation-theme\styles.css" pack="true">
 		    <PackageCopyToOutput>true</PackageCopyToOutput>
 		    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	    </Content>
