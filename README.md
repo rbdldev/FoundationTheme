@@ -69,7 +69,7 @@ Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Faceboo
 
  <img src="Images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
 
-To set legal noctive and/or privacy links in the footer use:
+To set legal notice and/or privacy links in the footer use:
 
 ```C#
 theme.LegalNotice = "/your/logalNoticePage";
