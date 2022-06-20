@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1.0-alpha5&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha2-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha3-green?style=flat" />
 </p>
 
 A theme for [StatiC#](https://github.com/rolandbraun-dev/StatiCsharp), a static website generator written in C#.
@@ -30,7 +30,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha2" />
+    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha3" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
