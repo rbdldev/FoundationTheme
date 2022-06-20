@@ -46,7 +46,7 @@ namespace Foundation
 
         public string MakeHeadHtml()
         {
-            return "<link rel =\"stylesheet\" href=\"/styles.css\">";
+            return "<link rel =\"stylesheet\" href=\"/foundation-theme/styles.css\">";
         }
 
         public string MakeIndexHtml(IWebsite website)
@@ -210,27 +210,27 @@ namespace Foundation
                 var div = new Div();
                 if (!string.IsNullOrEmpty(email))
                 {
-                    div.Add(new A("<img src=\"/socialIcons/mail.svg\">").Href($"mailto:{email}"));
+                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/mail.svg\">").Href($"mailto:{email}"));
                 }
 
                 if (!string.IsNullOrEmpty(linkedin))
                 {
-                    div.Add(new A("<img src=\"/socialIcons/linkedin.svg\">").Href($"{linkedin}"));
+                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/linkedin.svg\">").Href($"{linkedin}"));
                 }
 
                 if (!string.IsNullOrEmpty(github))
                 {
-                    div.Add(new A("<img src=\"/socialIcons/github.svg\">").Href($"{github}"));
+                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/github.svg\">").Href($"{github}"));
                 }
 
                 if (!string.IsNullOrEmpty(facebook))
                 {
-                    div.Add(new A("<img src=\"/socialIcons/facebook.svg\">").Href($"{facebook}"));
+                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/facebook.svg\">").Href($"{facebook}"));
                 }
 
                 if (!string.IsNullOrEmpty(instagram))
                 {
-                    div.Add(new A("<img src=\"/socialIcons/instagram.svg\">").Href($"{instagram}"));
+                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/instagram.svg\">").Href($"{instagram}"));
                 }
 
                 div.Class("social-icons");
