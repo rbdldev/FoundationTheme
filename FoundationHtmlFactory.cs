@@ -33,15 +33,16 @@ namespace Foundation
             }
         }
 
-        private IWebsite website;
+        private IWebsite _website;
         public IWebsite Website
         {
-            get { return this.Website; }
+            get { return this._website; }
+            set { this._website = value; }
         }
 
         public void WithWebsite(IWebsite website)
         {
-            this.website = website;
+            this.Website = website;
         }
 
         public string MakeHeadHtml()
@@ -77,7 +78,7 @@ namespace Foundation
 
         public string MakePageHtml(IPage page)
         {
-            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
+            return new HTML().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
@@ -93,7 +94,7 @@ namespace Foundation
             List<IItem> items = section.Items;
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
+            return new HTML().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
@@ -105,7 +106,7 @@ namespace Foundation
 
         public string MakeItemHtml(IItem item)
         {
-            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
+            return new HTML().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -123,7 +124,7 @@ namespace Foundation
         {
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new HTML().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
+            return new HTML().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
