@@ -31,33 +31,33 @@
     </ItemGroup>
 
     <!-- StatiC# reference -->
-    <ItemGroup>
-        <PackageReference Include="StatiCsharp" Version="0.1.0-alpha5" />
+	<ItemGroup>
+      <PackageReference Include="StatiCsharp" Version="0.1.0-alpha6" />
     </ItemGroup>
 
     <!-- Output files -->
     <ItemGroup>
-	    <Content Include="FoundationResources\foundation-theme\socialIcons\facebook.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\facebook.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\foundation-theme\socialIcons\github.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\github.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\foundation-theme\socialIcons\instagram.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\instagram.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\foundation-theme\socialIcons\linkedin.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\linkedin.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\foundation-theme\socialIcons\mail.svg">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\mail.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
