@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
     <a href="https://github.com/rolandbraun-dev/StatiCsharp">
-        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1.0-alpha5&color=informational" />
+        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1.0-alpha6&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha3-green?style=flat" />
