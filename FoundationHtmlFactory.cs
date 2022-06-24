@@ -35,11 +35,6 @@ namespace Foundation
 
         public IWebsite Website { get; set; }
 
-        public void WithWebsite(IWebsite website)
-        {
-            this.Website = website;
-        }
-
         public string MakeHeadHtml()
         {
             return "<link rel =\"stylesheet\" href=\"/foundation-theme/styles.css\">";
