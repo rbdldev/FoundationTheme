@@ -28,17 +28,12 @@ namespace Foundation
         {
             get
             {
-                string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                return Path.Combine(path, "FoundationResources");
+                string? path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                return Path.Combine(path!, "FoundationResources");
             }
         }
 
-        private IWebsite _website;
-        public IWebsite Website
-        {
-            get { return this._website; }
-            set { this._website = value; }
-        }
+        public IWebsite Website { get; set; }
 
         public void WithWebsite(IWebsite website)
         {
@@ -68,11 +63,10 @@ namespace Foundation
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
                                             .Class("welcomeWrapper"))
-                                    .Add(new Text("<h2>Latest Content</h2>"))
+                                    .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
-
                     .Render();
         }
 
@@ -85,7 +79,6 @@ namespace Foundation
                                             .Class("content")))
                                     .Class("wrapper"))
                                 .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
-
                     .Render();
         }
 
