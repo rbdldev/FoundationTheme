@@ -321,7 +321,7 @@ namespace Foundation
                 var footer = new StatiCsharp.HtmlComponents.Footer();
                 footer.Add(new Paragraph()
                         .Add(new Text("Generated with ❤️ using "))
-                        .Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")));
+                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCsharp")));
 
                 if (!string.IsNullOrEmpty(legalNotice) | !string.IsNullOrEmpty(privacy))
                 {
