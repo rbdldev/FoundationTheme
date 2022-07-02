@@ -10,14 +10,14 @@
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
         <Description>A custom theme for StatiC#, a static webside generator written in C#.</Description>
-        <PackageProjectUrl>https://github.com/rolandbraun-dev/FoundationTheme</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/RolandBraunDev/FoundationTheme</PackageProjectUrl>
         <NeutralLanguage>en-US</NeutralLanguage>
         <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
         <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
-        <RepositoryUrl>https://github.com/rolandbraun-dev/FoundationTheme</RepositoryUrl>
+        <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>StatiC#; StatiCsharp; staticsharp, theme, themes, website, template</PackageTags>
-        <PackageReleaseNotes>Initial release. This is a prerelease.</PackageReleaseNotes>
+        <PackageReleaseNotes>This is a prerelease.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
