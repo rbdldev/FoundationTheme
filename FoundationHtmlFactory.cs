@@ -119,7 +119,7 @@ namespace Foundation
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
-                                        .Add(new bigTag(tag)))
+                                        .Add(new BigTag(tag)))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
@@ -154,6 +154,7 @@ namespace Foundation
                 _instagram = instagram;
                 _youtube = youtube;
             }
+
             public string Render()
             {
                 Ul NavLinks = new();
@@ -242,15 +243,15 @@ namespace Foundation
 
         private class ItemList : IHtmlComponent
         {
-            private List<IItem> items;
+            private List<IItem> _items;
             public ItemList(List<IItem> items)
             {
-                this.items = items;
+                _items = items;
             }
             public string Render()
             {
                 var result = new Ul().Class("item-list");
-                items.ForEach((item) => result.Add(
+                _items.ForEach((item) => result.Add(
                                                 new Li()
                                                     .Add(new Article()
                                                         .Add(new H1().Add(
@@ -269,17 +270,17 @@ namespace Foundation
             }
         }
 
-        public class TagList : IHtmlComponent
+        private class TagList : IHtmlComponent
         {
-            private List<string> tags;
+            private List<string> _tags;
             public TagList(List<string> tags)
             {
-                this.tags = tags;
+                _tags = tags;
             }
             public string Render()
             {
                 var result = new Ul().Class("tags");
-                tags.ForEach((tag) => result.Add(
+                _tags.ForEach((tag) => result.Add(
                                                 new Li().Class("variant-default")
                                                         .Add(new A(tag).Href($"/tag/{tag}")))
                             );
@@ -287,35 +288,35 @@ namespace Foundation
             }
         }
 
-        private class bigTag : IHtmlComponent
+        private class BigTag : IHtmlComponent
         {
-            private string tag;
-            public bigTag(string tag)
+            private string _tag;
+            public BigTag(string tag)
             {
-                this.tag = tag;
+                _tag = tag;
             }
             public string Render()
             {
-                var result = new Span(tag).Class("tag");
+                var result = new Span(_tag).Class("tag");
                 return result.Render();
             }
         }
 
         private class Footer : IHtmlComponent
         {
-            private string legalNotice;
-            private string privacy;
+            private string _legalNotice;
+            private string _privacy;
 
             public Footer(string legalNotice, string privacy)
             {
-                this.legalNotice = legalNotice;
-                this.privacy = privacy;
+                _legalNotice = legalNotice;
+                _privacy = privacy;
             }
 
             public Footer()
             {
-                legalNotice = string.Empty;
-                privacy = string.Empty;
+                _legalNotice = string.Empty;
+                _privacy = string.Empty;
             }
             public string Render()
             {
@@ -324,18 +325,18 @@ namespace Foundation
                         .Add(new Text("Generated with ❤️ using "))
                         .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCsharp")));
 
-                if (!string.IsNullOrEmpty(legalNotice) | !string.IsNullOrEmpty(privacy))
+                if (!string.IsNullOrEmpty(_legalNotice) | !string.IsNullOrEmpty(_privacy))
                 {
                     var legal = new Paragraph();
                     
-                    if (!string.IsNullOrEmpty(privacy))
+                    if (!string.IsNullOrEmpty(_privacy))
                     {
-                        legal.Add(new A("Datenschutz - Privacy").Href(privacy));
+                        legal.Add(new A("Datenschutz - Privacy").Href(_privacy));
                     }
 
-                    if (!string.IsNullOrEmpty(legalNotice))
+                    if (!string.IsNullOrEmpty(_legalNotice))
                     {
-                        legal.Add(new A("Impressum - Legal Notice").Href(legalNotice).Style("padding-left: 20px"));
+                        legal.Add(new A("Impressum - Legal Notice").Href(_legalNotice).Style("padding-left: 20px"));
                     }
 
                     footer.Add(legal);
