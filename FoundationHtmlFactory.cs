@@ -13,18 +13,6 @@ namespace Foundation
         public string Youtube { get; set; }
         public string LegalNotice { get; set; }
         public string Privacy { get; set; }
-
-        public FoundationHtmlFactory()
-        {
-            Email          = string.Empty;
-            Linkedin       = string.Empty;
-            Github         = string.Empty;
-            Facebook       = string.Empty;
-            Instagram      = string.Empty;
-            Youtube        = string.Empty;
-            LegalNotice    = string.Empty;
-            Privacy        = string.Empty;
-        }
         
         public string ResourcesPath
         {
@@ -35,7 +23,20 @@ namespace Foundation
             }
         }
 
-        public IWebsite? Website { get; set; }
+        private IWebsite Website { get; set; }
+
+        public FoundationHtmlFactory(IWebsite website)
+        {
+            Website     = website;
+            Email       = string.Empty;
+            Linkedin    = string.Empty;
+            Github      = string.Empty;
+            Facebook    = string.Empty;
+            Instagram   = string.Empty;
+            Youtube     = string.Empty;
+            LegalNotice = string.Empty;
+            Privacy     = string.Empty;
+        }
 
         public string MakeHeadHtml()
         {
@@ -69,7 +70,7 @@ namespace Foundation
 
         public string MakePageHtml(IPage page)
         {
-            return new Body().Add(new SiteHeader(website: Website!, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
@@ -84,7 +85,7 @@ namespace Foundation
             List<IItem> items = section.Items;
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website!, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
@@ -96,7 +97,7 @@ namespace Foundation
 
         public string MakeItemHtml(IItem item)
         {
-            return new Body().Add(new SiteHeader(website: Website!, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -114,7 +115,7 @@ namespace Foundation
         {
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website!, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
@@ -165,7 +166,7 @@ namespace Foundation
                 }
                 return new Header(
                                 new Div(
-                                    new A(._website.Name).Href("/").Class("site-name")
+                                    new A(_website.Name).Href("/").Class("site-name")
                                 ).Add(
                                     new Nav().Add(
                                         new Ul().Add(NavLinks)
@@ -244,7 +245,7 @@ namespace Foundation
             private List<IItem> items;
             public ItemList(List<IItem> items)
             {
-                items = items;
+                this.items = items;
             }
             public string Render()
             {
@@ -273,7 +274,7 @@ namespace Foundation
             private List<string> tags;
             public TagList(List<string> tags)
             {
-                tags = tags;
+                this.tags = tags;
             }
             public string Render()
             {
@@ -291,7 +292,7 @@ namespace Foundation
             private string tag;
             public bigTag(string tag)
             {
-                tag = tag;
+                this.tag = tag;
             }
             public string Render()
             {
@@ -313,8 +314,8 @@ namespace Foundation
 
             public Footer()
             {
-                this.legalNotice = string.Empty;
-                this.privacy = string.Empty;
+                legalNotice = string.Empty;
+                privacy = string.Empty;
             }
             public string Render()
             {
