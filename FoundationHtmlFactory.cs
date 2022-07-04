@@ -43,11 +43,11 @@ namespace Foundation
             return "<link rel =\"stylesheet\" href=\"/foundation-theme/styles.css\">";
         }
 
-        public string MakeIndexHtml(IWebsite website)
+        public string MakeIndexHtml(IIndex index)
         {
             // Collect all items to show. 10 items max.
             List<IItem> items = new List<IItem>();
-            foreach (ISection section in website.Sections)
+            foreach (ISection section in Website.Sections)
             {
                 section.Items.ForEach((item) => items.Add(item));
             }
@@ -57,9 +57,12 @@ namespace Foundation
             items.Reverse();
             items = items.GetRange(0, showArticles);
 
-            return new Body().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
                                 .Add(new Div()
-                                    .Add(new Div(website.Index.Content)
+                                    .Add(new Div()
+                                            .Add(new Image("/me.jpg")
+                                                    .Class("portraitImage"))
+                                            .Add(new Text(index.Content))
                                             .Class("welcomeWrapper"))
                                     .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
