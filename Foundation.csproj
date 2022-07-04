@@ -28,6 +28,7 @@
         <None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
         <None Remove="FoundationResources\foundation-theme\socialIcons\mail.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\youtube.svg" />
+		<None Remove="FoundationResources\me.jpg" />
         <None Remove="FoundationResources\foundation-theme\styles.css" />
     </ItemGroup>
 
@@ -64,6 +65,11 @@
 		</Content>
 
 		<Content Include="FoundationResources\foundation-theme\socialIcons\youtube.svg" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+		<Content Include="FoundationResources\me.jpg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
