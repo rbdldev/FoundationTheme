@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha4-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCsharp.Theme.Foundation">
-        <img src="https://img.shields.io/nuget/v/StatiCsharp.Theme.Foundation?color=informational" />
+        <img src="https://img.shields.io/nuget/v/StatiCsharp.Theme.Foundation?color=orange" />
     </a>
 </p>
 
