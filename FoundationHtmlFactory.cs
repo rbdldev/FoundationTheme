@@ -13,18 +13,6 @@ namespace Foundation
         public string Youtube { get; set; }
         public string LegalNotice { get; set; }
         public string Privacy { get; set; }
-
-        public FoundationHtmlFactory()
-        {
-            this.Email          = string.Empty;
-            this.Linkedin       = string.Empty;
-            this.Github         = string.Empty;
-            this.Facebook       = string.Empty;
-            this.Instagram      = string.Empty;
-            this.Youtube        = string.Empty;
-            this.LegalNotice    = string.Empty;
-            this.Privacy        = string.Empty;
-        }
         
         public string ResourcesPath
         {
@@ -35,18 +23,31 @@ namespace Foundation
             }
         }
 
-        public IWebsite Website { get; set; }
+        private IWebsite Website { get; set; }
+
+        public FoundationHtmlFactory(IWebsite website)
+        {
+            Website     = website;
+            Email       = string.Empty;
+            Linkedin    = string.Empty;
+            Github      = string.Empty;
+            Facebook    = string.Empty;
+            Instagram   = string.Empty;
+            Youtube     = string.Empty;
+            LegalNotice = string.Empty;
+            Privacy     = string.Empty;
+        }
 
         public string MakeHeadHtml()
         {
             return "<link rel =\"stylesheet\" href=\"/foundation-theme/styles.css\">";
         }
 
-        public string MakeIndexHtml(IWebsite website)
+        public string MakeIndexHtml(IIndex index)
         {
             // Collect all items to show. 10 items max.
             List<IItem> items = new List<IItem>();
-            foreach (ISection section in website.Sections)
+            foreach (ISection section in Website.Sections)
             {
                 section.Items.ForEach((item) => items.Add(item));
             }
@@ -56,9 +57,12 @@ namespace Foundation
             items.Reverse();
             items = items.GetRange(0, showArticles);
 
-            return new Body().Add(new SiteHeader(website: website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
                                 .Add(new Div()
-                                    .Add(new Div(website.Index.Content)
+                                    .Add(new Div()
+                                            .Add(new Image("/me.jpg")
+                                                    .Class("portraitImage"))
+                                            .Add(new Text(index.Content))
                                             .Class("welcomeWrapper"))
                                     .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
@@ -118,7 +122,7 @@ namespace Foundation
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
-                                        .Add(new bigTag(tag)))
+                                        .Add(new BigTag(tag)))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
@@ -144,15 +148,16 @@ namespace Foundation
 
             public SiteHeader(IWebsite website, string email, string linkedin, string github, string facebook, string instagram, string youtube)
             {
-                this._website = website;
-                this._sections = website.MakeSectionsFor;
-                this._email = email;
-                this._linkedin = linkedin;
-                this._github = github;
-                this._facebook = facebook;
-                this._instagram = instagram;
-                this._youtube = youtube;
+                _website = website;
+                _sections = website.MakeSectionsFor;
+                _email = email;
+                _linkedin = linkedin;
+                _github = github;
+                _facebook = facebook;
+                _instagram = instagram;
+                _youtube = youtube;
             }
+
             public string Render()
             {
                 Ul NavLinks = new();
@@ -165,7 +170,7 @@ namespace Foundation
                 }
                 return new Header(
                                 new Div(
-                                    new A(this._website.Name).Href("/").Class("site-name")
+                                    new A(_website.Name).Href("/").Class("site-name")
                                 ).Add(
                                     new Nav().Add(
                                         new Ul().Add(NavLinks)
@@ -188,12 +193,12 @@ namespace Foundation
 
             public SocialIcons(string email, string linkedin, string github, string facebook, string instagram, string youtube)
             {
-                this._email = email;
-                this._linkedin = linkedin;
-                this._github = github;
-                this._facebook = facebook;
-                this._instagram = instagram;
-                this._youtube = youtube;
+                _email = email;
+                _linkedin = linkedin;
+                _github = github;
+                _facebook = facebook;
+                _instagram = instagram;
+                _youtube = youtube;
             }
 
             public string Render()
@@ -241,15 +246,15 @@ namespace Foundation
 
         private class ItemList : IHtmlComponent
         {
-            private List<IItem> items;
+            private List<IItem> _items;
             public ItemList(List<IItem> items)
             {
-                this.items = items;
+                _items = items;
             }
             public string Render()
             {
                 var result = new Ul().Class("item-list");
-                items.ForEach((item) => result.Add(
+                _items.ForEach((item) => result.Add(
                                                 new Li()
                                                     .Add(new Article()
                                                         .Add(new H1().Add(
@@ -268,17 +273,17 @@ namespace Foundation
             }
         }
 
-        public class TagList : IHtmlComponent
+        private class TagList : IHtmlComponent
         {
-            private List<string> tags;
+            private List<string> _tags;
             public TagList(List<string> tags)
             {
-                this.tags = tags;
+                _tags = tags;
             }
             public string Render()
             {
                 var result = new Ul().Class("tags");
-                tags.ForEach((tag) => result.Add(
+                _tags.ForEach((tag) => result.Add(
                                                 new Li().Class("variant-default")
                                                         .Add(new A(tag).Href($"/tag/{tag}")))
                             );
@@ -286,35 +291,35 @@ namespace Foundation
             }
         }
 
-        private class bigTag : IHtmlComponent
+        private class BigTag : IHtmlComponent
         {
-            private string tag;
-            public bigTag(string tag)
+            private string _tag;
+            public BigTag(string tag)
             {
-                this.tag = tag;
+                _tag = tag;
             }
             public string Render()
             {
-                var result = new Span(tag).Class("tag");
+                var result = new Span(_tag).Class("tag");
                 return result.Render();
             }
         }
 
         private class Footer : IHtmlComponent
         {
-            private string legalNotice;
-            private string privacy;
+            private string _legalNotice;
+            private string _privacy;
 
             public Footer(string legalNotice, string privacy)
             {
-                this.legalNotice = legalNotice;
-                this.privacy = privacy;
+                _legalNotice = legalNotice;
+                _privacy = privacy;
             }
 
             public Footer()
             {
-                this.legalNotice = string.Empty;
-                this.privacy = string.Empty;
+                _legalNotice = string.Empty;
+                _privacy = string.Empty;
             }
             public string Render()
             {
@@ -323,18 +328,18 @@ namespace Foundation
                         .Add(new Text("Generated with ❤️ using "))
                         .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCsharp")));
 
-                if (!string.IsNullOrEmpty(legalNotice) | !string.IsNullOrEmpty(privacy))
+                if (!string.IsNullOrEmpty(_legalNotice) | !string.IsNullOrEmpty(_privacy))
                 {
                     var legal = new Paragraph();
                     
-                    if (!string.IsNullOrEmpty(privacy))
+                    if (!string.IsNullOrEmpty(_privacy))
                     {
-                        legal.Add(new A("Datenschutz - Privacy").Href(privacy));
+                        legal.Add(new A("Datenschutz - Privacy").Href(_privacy));
                     }
 
-                    if (!string.IsNullOrEmpty(legalNotice))
+                    if (!string.IsNullOrEmpty(_legalNotice))
                     {
-                        legal.Add(new A("Impressum - Legal Notice").Href(legalNotice).Style("padding-left: 20px"));
+                        legal.Add(new A("Impressum - Legal Notice").Href(_legalNotice).Style("padding-left: 20px"));
                     }
 
                     footer.Add(legal);

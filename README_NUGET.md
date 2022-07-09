@@ -7,7 +7,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha3" />
+    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha4" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
@@ -22,16 +22,22 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",
-    source: @"/path/to/your/project"
-    );
+    sections: "posts, about"
+);
 
 var theme = new FoundationHtmlFactory();
-
 // Set up social icon here if needed.
 
-website.Make(theme);
+var manager = new WebsiteManager(
+    website: website,
+    htmlFactory: theme,                 // here Foundation is injected to the generating process
+    source: @"/path/to/your/project"
+);
+
+manager.Make();
 ```
+
+To set the portrait image on the index page, provide a `me.jpg` image in the root of your `Resources` directory.
 
 ## Advanced settings
 
@@ -42,7 +48,7 @@ theme.Email = "mail@yourdomain.com";
 theme.Facebook = "https://facebook.com/yourName";
 ```
 
-Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram and YouTube.
+Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram and Youtube.  
 
 To set legal notice and/or privacy links in the footer use:
 

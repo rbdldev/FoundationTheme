@@ -9,14 +9,17 @@
     <a href="https://dotnet.microsoft.com">
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
-    <a href="https://github.com/rolandbraun-dev/StatiCsharp">
+    <a href="https://github.com/RolandBraunDev/StatiCsharp">
         <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha3-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha4-green?style=flat" />
+    <a href="https://www.nuget.org/packages/StatiCsharp.Theme.Foundation">
+        <img src="https://img.shields.io/nuget/v/StatiCsharp.Theme.Foundation?color=orange" />
+    </a>
 </p>
 
-A theme for [StatiC#](https://github.com/rolandbraun-dev/StatiCsharp), a static website generator written in C#.
+A theme for [StatiC#](https://github.com/RolandBraunDev/StatiCsharp), a static website generator written in C#.
 
 ## Example
 
@@ -30,7 +33,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha3" />
+    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha4" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
@@ -45,16 +48,22 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",
-    source: @"/path/to/your/project"
-    );
+    sections: "posts, about"
+);
 
 var theme = new FoundationHtmlFactory();
-
 // Set up social icon here if needed.
 
-website.Make(theme);
+var manager = new WebsiteManager(
+    website: website,
+    htmlFactory: theme,                 // here Foundation is injected to the generating process
+    source: @"/path/to/your/project"
+);
+
+manager.Make();
 ```
+
+To set the portrait image on the index page, provide a `me.jpg` image in the root of your `Resources` directory.
 
 ## Advanced settings
 

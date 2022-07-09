@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <Version>0.1.0-alpha3</Version>
+        <Version>0.1.0-alpha4</Version>
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
@@ -28,12 +28,13 @@
         <None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
         <None Remove="FoundationResources\foundation-theme\socialIcons\mail.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\youtube.svg" />
+		<None Remove="FoundationResources\me.jpg" />
         <None Remove="FoundationResources\foundation-theme\styles.css" />
     </ItemGroup>
 
     <!-- StatiC# reference -->
 	<ItemGroup>
-      <PackageReference Include="StatiCsharp" Version="0.1.0-alpha6" />
+      <PackageReference Include="StatiCsharp" Version="0.1.0-alpha7" />
     </ItemGroup>
 
     <!-- Output files -->
@@ -64,6 +65,11 @@
 		</Content>
 
 		<Content Include="FoundationResources\foundation-theme\socialIcons\youtube.svg" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+		<Content Include="FoundationResources\me.jpg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
