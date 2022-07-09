@@ -51,7 +51,7 @@ var myAwesomeWebsite = new Website(
     sections: "posts, about"
 );
 
-var theme = new FoundationHtmlFactory();
+var theme = new FoundationHtmlFactory(website: myAwesomeWebsite);
 // Set up social icon here if needed.
 
 var manager = new WebsiteManager(
