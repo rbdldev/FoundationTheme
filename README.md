@@ -55,7 +55,7 @@ var theme = new FoundationHtmlFactory();
 // Set up social icon here if needed.
 
 var manager = new WebsiteManager(
-    website: website,
+    website: myAwesomeWebsite,
     htmlFactory: theme,                 // here Foundation is injected to the generating process
     source: @"/path/to/your/project"
 );
