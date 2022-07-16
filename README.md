@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha4-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha5-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCSharp.Theme.Foundation">
         <img src="https://img.shields.io/nuget/v/StatiCSharp.Theme.Foundation?color=orange" />
     </a>
