@@ -9,17 +9,17 @@
     <a href="https://dotnet.microsoft.com">
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
-    <a href="https://github.com/RolandBraunDev/StatiCsharp">
+    <a href="https://github.com/RolandBraunDev/StatiCSharp">
         <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha4-green?style=flat" />
-    <a href="https://www.nuget.org/packages/StatiCsharp.Theme.Foundation">
-        <img src="https://img.shields.io/nuget/v/StatiCsharp.Theme.Foundation?color=orange" />
+    <a href="https://www.nuget.org/packages/StatiCSharp.Theme.Foundation">
+        <img src="https://img.shields.io/nuget/v/StatiCSharp.Theme.Foundation?color=orange" />
     </a>
 </p>
 
-A theme for [StatiC#](https://github.com/RolandBraunDev/StatiCsharp), a static website generator written in C#.
+A theme for [StatiC#](https://github.com/RolandBraunDev/StatiCSharp), a static website generator written in C#.
 
 ## Example
 
@@ -33,14 +33,14 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCsharp.Theme.Foundation" Version="0.1.0-alpha4" />
+    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.1.0-alpha4" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
 You can then import Foundation at the top of your `Program.cs` and inject the theme to StatiC#'s website generating process by initializing a new FoundationHtmlFactory:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 using Foundation;
 
 var myAwesomeWebsite = new Website(
