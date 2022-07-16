@@ -13,7 +13,7 @@
         <PackageProjectUrl>https://github.com/RolandBraunDev/FoundationTheme</PackageProjectUrl>
         <NeutralLanguage>en-US</NeutralLanguage>
         <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
-        <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
+        <AssemblyName>StatiCSharp.Theme.$(MSBuildProjectName)</AssemblyName>
         <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>StatiC#; StatiCsharp; StatiCSharp staticsharp, theme, themes, website, template</PackageTags>
@@ -34,7 +34,7 @@
 
     <!-- StatiC# reference -->
 	<ItemGroup>
-      <PackageReference Include="StatiCsharp" Version="0.1.0-alpha8" />
+      <PackageReference Include="StatiCSharp" Version="0.1.0-alpha8" />
     </ItemGroup>
 
     <!-- Output files -->
