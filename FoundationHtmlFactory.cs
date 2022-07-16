@@ -1,5 +1,5 @@
-﻿using StatiCsharp.HtmlComponents;
-using StatiCsharp.Interfaces;
+﻿using StatiCSharp.HtmlComponents;
+using StatiCSharp.Interfaces;
 
 namespace Foundation
 {
@@ -323,10 +323,10 @@ namespace Foundation
             }
             public string Render()
             {
-                var footer = new StatiCsharp.HtmlComponents.Footer();
+                var footer = new StatiCSharp.HtmlComponents.Footer();
                 footer.Add(new Paragraph()
                         .Add(new Text("Generated with ❤️ using "))
-                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCsharp")));
+                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCSharp")));
 
                 if (!string.IsNullOrEmpty(_legalNotice) | !string.IsNullOrEmpty(_privacy))
                 {
