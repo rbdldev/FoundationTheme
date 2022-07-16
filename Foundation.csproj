@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <Version>0.1.0-alpha4</Version>
+        <Version>0.1.0-alpha5</Version>
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
@@ -16,7 +16,7 @@
         <AssemblyName>StatiCsharp.Theme.$(MSBuildProjectName)</AssemblyName>
         <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>StatiC#; StatiCsharp; staticsharp, theme, themes, website, template</PackageTags>
+        <PackageTags>StatiC#; StatiCsharp; StatiCSharp staticsharp, theme, themes, website, template</PackageTags>
         <PackageReleaseNotes>This is a prerelease.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
@@ -34,7 +34,7 @@
 
     <!-- StatiC# reference -->
 	<ItemGroup>
-      <PackageReference Include="StatiCsharp" Version="0.1.0-alpha7" />
+      <PackageReference Include="StatiCsharp" Version="0.1.0-alpha8" />
     </ItemGroup>
 
     <!-- Output files -->
