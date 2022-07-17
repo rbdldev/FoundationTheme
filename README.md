@@ -56,7 +56,7 @@ var theme = new FoundationHtmlFactory(website: myAwesomeWebsite);
 
 var manager = new WebsiteManager(
     website: myAwesomeWebsite,
-    htmlFactory: theme,                 // here Foundation is injected to the generating process
+    htmlFactory: theme,                 // Here Foundation is injected to the generating process
     source: @"/path/to/your/project"
 );
 
