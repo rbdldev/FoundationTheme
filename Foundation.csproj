@@ -22,11 +22,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <None Remove="FoundationResources\foundation-theme\socialIcons\email.svg" />
         <None Remove="FoundationResources\foundation-theme\socialIcons\facebook.svg" />
         <None Remove="FoundationResources\foundation-theme\socialIcons\github.svg" />
         <None Remove="FoundationResources\foundation-theme\socialIcons\instagram.svg" />
         <None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
-        <None Remove="FoundationResources\foundation-theme\socialIcons\mail.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\youtube.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\teams.svg" />
 		<None Remove="FoundationResources\me.jpg" />
@@ -60,7 +60,7 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-	    <Content Include="FoundationResources\foundation-theme\socialIcons\mail.svg" pack="true">
+	    <Content Include="FoundationResources\foundation-theme\socialIcons\email.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
