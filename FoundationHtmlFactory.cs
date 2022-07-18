@@ -1,12 +1,14 @@
 ﻿using StatiCSharp.HtmlComponents;
 using StatiCSharp.Interfaces;
+using System;
+using System.Reflection;
 
 namespace Foundation
 {
     public class FoundationHtmlFactory : IHtmlFactory
     {
         public string Email { get; set; } = string.Empty;
-        public string Linkedin { get; set; } = string.Empty;
+        public string LinkedIn { get; set; } = string.Empty;
         public string Github { get; set; } = string.Empty;
         public string Facebook { get; set; } = string.Empty;
         public string Instagram { get; set; } = string.Empty;
@@ -14,6 +16,21 @@ namespace Foundation
         public string Teams { get; set; } = string.Empty;
         public string LegalNotice { get; set; } = string.Empty;
         public string Privacy { get; set; } = string.Empty;
+        private Dictionary<string, string> SocialIconsMap
+        {
+            get
+            {
+                return new Dictionary<string, string>()
+                {
+                    { "Email", Email },
+                    { "LinkedIn", LinkedIn },
+                    { "GitHub", Github },
+                    { "Facebook", Facebook },
+                    { "YouTube", Youtube },
+                    { "Teams", Teams }
+                };
+            }
+        }
 
         public string ResourcesPath
         {
@@ -50,7 +67,7 @@ namespace Foundation
             items.Reverse();
             items = items.GetRange(0, showArticles);
 
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new Div()
                                             .Add(new Image("/me.jpg")
@@ -66,7 +83,7 @@ namespace Foundation
 
         public string MakePageHtml(IPage page)
         {
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
@@ -81,7 +98,7 @@ namespace Foundation
             List<IItem> items = section.Items;
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
@@ -93,7 +110,7 @@ namespace Foundation
 
         public string MakeItemHtml(IItem item)
         {
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -111,7 +128,7 @@ namespace Foundation
         {
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
@@ -129,28 +146,16 @@ namespace Foundation
 
         private class SiteHeader : IHtmlComponent
         {
-            private string _email;
-            private string _linkedin;
-            private string _github;
-            private string _facebook;
-            private string _instagram;
-            private string _youtube;
-            private string _teams;
+            private Dictionary<string, string> _socialIconsMap;
 
             private List<string> _sections;
             private IWebsite _website;
 
-            public SiteHeader(IWebsite website, string email, string linkedin, string github, string facebook, string instagram, string youtube, string teams)
+            public SiteHeader(IWebsite website, Dictionary<string, string> socialIconsMap)
             {
                 _website = website;
+                _socialIconsMap = socialIconsMap;
                 _sections = website.MakeSectionsFor;
-                _email = email;
-                _linkedin = linkedin;
-                _github = github;
-                _facebook = facebook;
-                _instagram = instagram;
-                _youtube = youtube;
-                _teams = teams;
             }
 
             public string Render()
@@ -172,73 +177,37 @@ namespace Foundation
                                     )
                                 ).Class("wrapper")
                         )
-                        .Add(new SocialIcons(email: _email, linkedin: _linkedin, github: _github, facebook: _facebook, instagram: _instagram, youtube: _youtube, teams: _teams))
+                        .Add(new SocialIcons(socialIconsMap: _socialIconsMap))
                         .Render();
             }
         }
 
         private class SocialIcons : IHtmlComponent
         {
-            private string _email;
-            private string _linkedin;
-            private string _github;
-            private string _facebook;
-            private string _instagram;
-            private string _youtube;
-            private string _teams;
+            private string? _email;
+            private string? _linkedin;
+            private string? _github;
+            private string? _facebook;
+            private string? _instagram;
+            private string? _youtube;
+            private string? _teams;
+            private Dictionary<string, string> _socialIconsMap;
 
-            public SocialIcons(string email, string linkedin, string github, string facebook, string instagram, string youtube, string teams)
+            public SocialIcons(Dictionary<string, string> socialIconsMap)
             {
-                _email = email;
-                _linkedin = linkedin;
-                _github = github;
-                _facebook = facebook;
-                _instagram = instagram;
-                _youtube = youtube;
-                _teams = teams;
+                _socialIconsMap = socialIconsMap;
             }
 
             public string Render()
             {
-                if (string.IsNullOrEmpty(_email) && string.IsNullOrEmpty(_linkedin) && string.IsNullOrEmpty(_github))
-                {
-                    return string.Empty;
-                }
-
                 var div = new Div();
-                if (!string.IsNullOrEmpty(_email))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/mail.svg\">").Href($"mailto:{_email}"));
-                }
 
-                if (!string.IsNullOrEmpty(_linkedin))
+                foreach (KeyValuePair<string, string> social in _socialIconsMap)
                 {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/linkedin.svg\">").Href($"{_linkedin}"));
-                }
-
-                if (!string.IsNullOrEmpty(_github))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/github.svg\">").Href($"{_github}"));
-                }
-
-                if (!string.IsNullOrEmpty(_facebook))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/facebook.svg\">").Href($"{_facebook}"));
-                }
-
-                if (!string.IsNullOrEmpty(_instagram))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/instagram.svg\">").Href($"{_instagram}"));
-                }
-
-                if (!string.IsNullOrEmpty(_youtube))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/youtube.svg\">").Href($"{_youtube}"));
-                }
-
-                if (!string.IsNullOrEmpty(_teams))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/teams.svg\">").Href($"{_teams}"));
+                    if (!string.IsNullOrEmpty(social.Value))
+                    {
+                        div.Add(new A($"<img src=\"/foundation-theme/socialIcons/{social.Key.ToLower()}.svg\">").Href($"{social.Value}"));
+                    }
                 }
 
                 div.Class("social-icons");
