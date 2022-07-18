@@ -184,13 +184,6 @@ namespace Foundation
 
         private class SocialIcons : IHtmlComponent
         {
-            private string? _email;
-            private string? _linkedin;
-            private string? _github;
-            private string? _facebook;
-            private string? _instagram;
-            private string? _youtube;
-            private string? _teams;
             private Dictionary<string, string> _socialIconsMap;
 
             public SocialIcons(Dictionary<string, string> socialIconsMap)
