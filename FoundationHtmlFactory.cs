@@ -5,15 +5,16 @@ namespace Foundation
 {
     public class FoundationHtmlFactory : IHtmlFactory
     {
-        public string Email { get; set; }
-        public string Linkedin { get; set; }
-        public string Github { get; set; }
-        public string Facebook { get; set; }
-        public string Instagram { get; set; }
-        public string Youtube { get; set; }
-        public string LegalNotice { get; set; }
-        public string Privacy { get; set; }
-        
+        public string Email { get; set; } = string.Empty;
+        public string Linkedin { get; set; } = string.Empty;
+        public string Github { get; set; } = string.Empty;
+        public string Facebook { get; set; } = string.Empty;
+        public string Instagram { get; set; } = string.Empty;
+        public string Youtube { get; set; } = string.Empty;
+        public string Teams { get; set; } = string.Empty;
+        public string LegalNotice { get; set; } = string.Empty;
+        public string Privacy { get; set; } = string.Empty;
+
         public string ResourcesPath
         {
             get
@@ -28,14 +29,6 @@ namespace Foundation
         public FoundationHtmlFactory(IWebsite website)
         {
             Website     = website;
-            Email       = string.Empty;
-            Linkedin    = string.Empty;
-            Github      = string.Empty;
-            Facebook    = string.Empty;
-            Instagram   = string.Empty;
-            Youtube     = string.Empty;
-            LegalNotice = string.Empty;
-            Privacy     = string.Empty;
         }
 
         public string MakeHeadHtml()
@@ -57,7 +50,7 @@ namespace Foundation
             items.Reverse();
             items = items.GetRange(0, showArticles);
 
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
                                 .Add(new Div()
                                     .Add(new Div()
                                             .Add(new Image("/me.jpg")
@@ -73,7 +66,7 @@ namespace Foundation
 
         public string MakePageHtml(IPage page)
         {
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
@@ -88,7 +81,7 @@ namespace Foundation
             List<IItem> items = section.Items;
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
@@ -100,7 +93,7 @@ namespace Foundation
 
         public string MakeItemHtml(IItem item)
         {
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -118,7 +111,7 @@ namespace Foundation
         {
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube, teams: Teams))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
@@ -142,11 +135,12 @@ namespace Foundation
             private string _facebook;
             private string _instagram;
             private string _youtube;
+            private string _teams;
 
             private List<string> _sections;
             private IWebsite _website;
 
-            public SiteHeader(IWebsite website, string email, string linkedin, string github, string facebook, string instagram, string youtube)
+            public SiteHeader(IWebsite website, string email, string linkedin, string github, string facebook, string instagram, string youtube, string teams)
             {
                 _website = website;
                 _sections = website.MakeSectionsFor;
@@ -156,6 +150,7 @@ namespace Foundation
                 _facebook = facebook;
                 _instagram = instagram;
                 _youtube = youtube;
+                _teams = teams;
             }
 
             public string Render()
@@ -177,7 +172,7 @@ namespace Foundation
                                     )
                                 ).Class("wrapper")
                         )
-                        .Add(new SocialIcons(email: _email, linkedin: _linkedin, github: _github, facebook: _facebook, instagram: _instagram, youtube: _youtube))
+                        .Add(new SocialIcons(email: _email, linkedin: _linkedin, github: _github, facebook: _facebook, instagram: _instagram, youtube: _youtube, teams: _teams))
                         .Render();
             }
         }
@@ -190,8 +185,9 @@ namespace Foundation
             private string _facebook;
             private string _instagram;
             private string _youtube;
+            private string _teams;
 
-            public SocialIcons(string email, string linkedin, string github, string facebook, string instagram, string youtube)
+            public SocialIcons(string email, string linkedin, string github, string facebook, string instagram, string youtube, string teams)
             {
                 _email = email;
                 _linkedin = linkedin;
@@ -199,6 +195,7 @@ namespace Foundation
                 _facebook = facebook;
                 _instagram = instagram;
                 _youtube = youtube;
+                _teams = teams;
             }
 
             public string Render()
@@ -237,6 +234,11 @@ namespace Foundation
                 if (!string.IsNullOrEmpty(_youtube))
                 {
                     div.Add(new A("<img src=\"/foundation-theme/socialIcons/youtube.svg\">").Href($"{_youtube}"));
+                }
+
+                if (!string.IsNullOrEmpty(_teams))
+                {
+                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/teams.svg\">").Href($"{_teams}"));
                 }
 
                 div.Class("social-icons");
