@@ -48,7 +48,7 @@ theme.Email = "mail@yourdomain.com";
 theme.Facebook = "https://facebook.com/yourName";
 ```
 
-Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram and Youtube.  
+Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram, YouTube and Teams.  
 
 To set legal notice and/or privacy links in the footer use:
 
