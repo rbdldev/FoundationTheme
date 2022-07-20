@@ -271,18 +271,18 @@ namespace Foundation
 
         private class Footer : IHtmlComponent
         {
-            private string _legalNotice;
+            private string _legal;
             private string _privacy;
 
             public Footer(string legalNotice, string privacy)
             {
-                _legalNotice = legalNotice;
+                _legal = legalNotice;
                 _privacy = privacy;
             }
 
             public Footer()
             {
-                _legalNotice = string.Empty;
+                _legal = string.Empty;
                 _privacy = string.Empty;
             }
             public string Render()
@@ -292,18 +292,18 @@ namespace Foundation
                         .Add(new Text("Generated with ❤️ using "))
                         .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCSharp")));
 
-                if (!string.IsNullOrEmpty(_legalNotice) | !string.IsNullOrEmpty(_privacy))
+                if (!string.IsNullOrEmpty(_legal) | !string.IsNullOrEmpty(_privacy))
                 {
                     var legal = new Paragraph();
                     
                     if (!string.IsNullOrEmpty(_privacy))
                     {
-                        legal.Add(new A("Datenschutz - Privacy").Href(_privacy));
+                        legal.Add(new A("Privacy").Href(_privacy));
                     }
 
-                    if (!string.IsNullOrEmpty(_legalNotice))
+                    if (!string.IsNullOrEmpty(_legal))
                     {
-                        legal.Add(new A("Impressum - Legal Notice").Href(_legalNotice).Style("padding-left: 20px"));
+                        legal.Add(new A("Legal").Href(_legal).Style("padding-left: 20px"));
                     }
 
                     footer.Add(legal);
