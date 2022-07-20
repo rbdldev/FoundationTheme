@@ -1,7 +1,5 @@
 ﻿using StatiCSharp.HtmlComponents;
 using StatiCSharp.Interfaces;
-using System;
-using System.Reflection;
 
 namespace Foundation
 {
@@ -16,6 +14,7 @@ namespace Foundation
         public string Teams { get; set; } = string.Empty;
         public string LegalNotice { get; set; } = string.Empty;
         public string Privacy { get; set; } = string.Empty;
+        public string Copyright { get; set; } = string.Empty;
         private Dictionary<string, string> SocialIconsMap
         {
             get
@@ -77,7 +76,7 @@ namespace Foundation
                                     .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -89,7 +88,7 @@ namespace Foundation
                                         .Add(new Div(page.Content)
                                             .Class("content")))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -104,7 +103,7 @@ namespace Foundation
                                 .Add(new Div()
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -120,7 +119,7 @@ namespace Foundation
                                         .Add(new Div(item.Content)
                                             .Class("content")))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -135,7 +134,7 @@ namespace Foundation
                                         .Add(new BigTag(tag)))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -271,20 +270,17 @@ namespace Foundation
 
         private class Footer : IHtmlComponent
         {
-            private string _legal;
-            private string _privacy;
+            private readonly string _legal;
+            private readonly string _privacy;
+            private readonly string _copyright;
 
-            public Footer(string legalNotice, string privacy)
+            public Footer(string legalNotice="", string privacy="", string copyright="")
             {
                 _legal = legalNotice;
                 _privacy = privacy;
+                _copyright = copyright;
             }
 
-            public Footer()
-            {
-                _legal = string.Empty;
-                _privacy = string.Empty;
-            }
             public string Render()
             {
                 var footer = new StatiCSharp.HtmlComponents.Footer();
@@ -307,6 +303,12 @@ namespace Foundation
                     }
 
                     footer.Add(legal);
+                }
+
+                if (!string.IsNullOrEmpty(_copyright))
+                {
+                    var copyright = new Paragraph($"© {_copyright}");
+                    footer.Add(copyright);
                 }
 
                 return footer.Render();
