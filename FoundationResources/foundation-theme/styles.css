@@ -58,17 +58,17 @@ a:hover {
 }
 
 header .wrapper .site-name {
-    color:rgb(50, 50, 50);
+    color: rgb(51, 51, 51);
     text-decoration: none;
 }
 
 header .wrapper .site-name:hover {
-    color:rgb(100, 100, 100);
+    color: rgb(51, 51, 51);
     text-decoration: none;
 }
 
 nav li a {
-    color:rgb(50, 50, 50);
+    color: #666;
     text-decoration: none;
 }
 
@@ -77,13 +77,13 @@ nav li a.selected {
 }
 
 nav li a:hover {
-    color:rgb(100, 100, 100);
+    color: rgb(51, 51, 51);
     opacity: 1;
     text-decoration: none;
 }
 
 article h1 a {
-    color:rgb(50, 50, 50);
+    color:rgb(51, 51, 51);
     text-decoration: none;
 }
 
@@ -322,9 +322,9 @@ footer {
         color:rgb(203, 213, 224);
         text-decoration: none;
     }
-    
+
     header .wrapper .site-name:hover {
-        color: #ffffff;
+        color: rgb(203, 213, 224);
         text-decoration: none;
     }
 
