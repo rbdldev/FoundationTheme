@@ -45,34 +45,74 @@ header {
     padding: 0px 0px 40px 0px;
 }
 
+
 /* Links */
 a {
-    color: inherit;
+    color: #3897D3;
     text-decoration: none;
 }
 
-.content a {
+a:hover {
     color: #3897D3;
     text-decoration: underline;
 }
 
-.content a:hover {
-    color: #227cb5;
+header .wrapper .site-name {
+    color:rgb(50, 50, 50);
     text-decoration: none;
 }
 
-.blueLink {
-    color: #3897D3;
+header .wrapper .site-name:hover {
+    color:rgb(100, 100, 100);
+    text-decoration: none;
+}
+
+nav li a {
+    color:rgb(50, 50, 50);
+    text-decoration: none;
+}
+
+nav li a.selected {
     text-decoration: underline;
 }
-.blueLink:hover {
-    color: #227cb5;
+
+nav li a:hover {
+    color:rgb(100, 100, 100);
+    opacity: 1;
+    text-decoration: none;
+}
+
+article h1 a {
+    color:rgb(50, 50, 50);
     text-decoration: none;
 }
 
 article h1 a:hover {
-    color: #666;
+    color:rgb(100, 100, 100);
+    text-decoration: none;
 }
+
+footer p a {
+    color: #8a8a8a;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    color: #8a8a8a;
+    text-decoration: underline;
+}
+
+.tags a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.tags a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+/* End Links */
+
 
 .wrapper {
     max-width: 900px;
@@ -98,10 +138,6 @@ header .wrapper {
     text-align: center;
 }
 
-header a {
-    text-decoration: none;
-}
-
 header .site-name {
     font-size: 1.5em;
     color: rgb(51, 51, 51);
@@ -119,15 +155,6 @@ nav li {
     margin: 0 7px;
     line-height: 1.5em;
     color: #666;
-}
-
-nav li a.selected {
-    text-decoration: underline;
-}
-
-nav li a:hover {
-    color: rgb(51, 51, 51);
-    opacity: 1;
 }
 
 .social-icons {
@@ -279,15 +306,69 @@ footer {
         color: rgb(203, 213, 224);
     }
     
+
+    /* Links */
+    a {
+        color: #3897D3;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #3897D3;
+        text-decoration: underline;
+    }
+
+    header .wrapper .site-name {
+        color:rgb(203, 213, 224);
+        text-decoration: none;
+    }
+    
+    header .wrapper .site-name:hover {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    nav li a {
+        color:rgb(203, 213, 224);
+        text-decoration: none;
+    }
+    
+    nav li a.selected {
+        text-decoration: underline;
+    }
+    
     nav li a:hover {
-        color: #fff;
+        color: #ffffff;
         opacity: 1;
+        text-decoration: none;
+    }
+
+    article h1 a {
+        color:rgb(203, 213, 224);
+        text-decoration: none;
     }
     
     article h1 a:hover {
-        color: #fff;
+        color: #ffffff;
+        text-decoration: none;
     }
     
+    footer p a {
+        color:rgb(203, 213, 224);
+        text-decoration: none;
+    }
+    
+    footer p a:hover {
+        color:rgb(203, 213, 224);
+        text-decoration: underline;
+    }
+
+    footer {
+        color: rgb(203, 213, 224);
+    }
+    /* End Links */
+    
+
     .item-list > li {
         background-color: #1A202C;
     }
