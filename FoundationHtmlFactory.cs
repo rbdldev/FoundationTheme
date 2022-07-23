@@ -5,15 +5,33 @@ namespace Foundation
 {
     public class FoundationHtmlFactory : IHtmlFactory
     {
-        public string Email { get; set; }
-        public string Linkedin { get; set; }
-        public string Github { get; set; }
-        public string Facebook { get; set; }
-        public string Instagram { get; set; }
-        public string Youtube { get; set; }
-        public string LegalNotice { get; set; }
-        public string Privacy { get; set; }
-        
+        public string Email { get; set; } = string.Empty;
+        public string LinkedIn { get; set; } = string.Empty;
+        public string Github { get; set; } = string.Empty;
+        public string Facebook { get; set; } = string.Empty;
+        public string Instagram { get; set; } = string.Empty;
+        public string Youtube { get; set; } = string.Empty;
+        public string Teams { get; set; } = string.Empty;
+        public string LegalNotice { get; set; } = string.Empty;
+        public string Privacy { get; set; } = string.Empty;
+        public string Copyright { get; set; } = string.Empty;
+        private Dictionary<string, string> SocialIconsMap
+        {
+            get
+            {
+                return new Dictionary<string, string>()
+                {
+                    { "Email", Email },
+                    { "LinkedIn", LinkedIn },
+                    { "GitHub", Github },
+                    { "Facebook", Facebook },
+                    { "Instagram", Instagram },
+                    { "YouTube", Youtube },
+                    { "Teams", Teams }
+                };
+            }
+        }
+
         public string ResourcesPath
         {
             get
@@ -28,14 +46,6 @@ namespace Foundation
         public FoundationHtmlFactory(IWebsite website)
         {
             Website     = website;
-            Email       = string.Empty;
-            Linkedin    = string.Empty;
-            Github      = string.Empty;
-            Facebook    = string.Empty;
-            Instagram   = string.Empty;
-            Youtube     = string.Empty;
-            LegalNotice = string.Empty;
-            Privacy     = string.Empty;
         }
 
         public string MakeHeadHtml()
@@ -57,7 +67,7 @@ namespace Foundation
             items.Reverse();
             items = items.GetRange(0, showArticles);
 
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new Div()
                                             .Add(new Image("/me.jpg")
@@ -67,19 +77,19 @@ namespace Foundation
                                     .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
         public string MakePageHtml(IPage page)
         {
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
                                             .Class("content")))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -88,19 +98,19 @@ namespace Foundation
             List<IItem> items = section.Items;
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
         public string MakeItemHtml(IItem item)
         {
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -110,7 +120,7 @@ namespace Foundation
                                         .Add(new Div(item.Content)
                                             .Class("content")))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -118,14 +128,14 @@ namespace Foundation
         {
             items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body().Add(new SiteHeader(website: Website, email: Email, linkedin: Linkedin, github: Github, facebook: Facebook, instagram: Instagram, youtube: Youtube))
+            return new Body().Add(new SiteHeader(website: Website, socialIconsMap: SocialIconsMap))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
                                         .Add(new BigTag(tag)))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
-                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy))
+                                .Add(new Footer(legalNotice: LegalNotice, privacy: Privacy, copyright: Copyright))
                     .Render();
         }
 
@@ -136,26 +146,16 @@ namespace Foundation
 
         private class SiteHeader : IHtmlComponent
         {
-            private string _email;
-            private string _linkedin;
-            private string _github;
-            private string _facebook;
-            private string _instagram;
-            private string _youtube;
+            private Dictionary<string, string> _socialIconsMap;
 
             private List<string> _sections;
             private IWebsite _website;
 
-            public SiteHeader(IWebsite website, string email, string linkedin, string github, string facebook, string instagram, string youtube)
+            public SiteHeader(IWebsite website, Dictionary<string, string> socialIconsMap)
             {
                 _website = website;
+                _socialIconsMap = socialIconsMap;
                 _sections = website.MakeSectionsFor;
-                _email = email;
-                _linkedin = linkedin;
-                _github = github;
-                _facebook = facebook;
-                _instagram = instagram;
-                _youtube = youtube;
             }
 
             public string Render()
@@ -165,7 +165,9 @@ namespace Foundation
                 {
                     if (section.ToString() is not null)
                     {
-                        NavLinks.Add(new Li(new A(section).Href($"/{section}")));
+                        // Make section name first char uppercase.
+                        string uppercaseSection = char.ToUpper(section[0]) + section.Substring(1);
+                        NavLinks.Add(new Li(new A(uppercaseSection).Href($"/{section}")));
                     }
                 }
                 return new Header(
@@ -177,66 +179,30 @@ namespace Foundation
                                     )
                                 ).Class("wrapper")
                         )
-                        .Add(new SocialIcons(email: _email, linkedin: _linkedin, github: _github, facebook: _facebook, instagram: _instagram, youtube: _youtube))
+                        .Add(new SocialIcons(socialIconsMap: _socialIconsMap))
                         .Render();
             }
         }
 
         private class SocialIcons : IHtmlComponent
         {
-            private string _email;
-            private string _linkedin;
-            private string _github;
-            private string _facebook;
-            private string _instagram;
-            private string _youtube;
+            private Dictionary<string, string> _socialIconsMap;
 
-            public SocialIcons(string email, string linkedin, string github, string facebook, string instagram, string youtube)
+            public SocialIcons(Dictionary<string, string> socialIconsMap)
             {
-                _email = email;
-                _linkedin = linkedin;
-                _github = github;
-                _facebook = facebook;
-                _instagram = instagram;
-                _youtube = youtube;
+                _socialIconsMap = socialIconsMap;
             }
 
             public string Render()
             {
-                if (string.IsNullOrEmpty(_email) && string.IsNullOrEmpty(_linkedin) && string.IsNullOrEmpty(_github))
-                {
-                    return string.Empty;
-                }
-
                 var div = new Div();
-                if (!string.IsNullOrEmpty(_email))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/mail.svg\">").Href($"mailto:{_email}"));
-                }
 
-                if (!string.IsNullOrEmpty(_linkedin))
+                foreach (KeyValuePair<string, string> social in _socialIconsMap)
                 {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/linkedin.svg\">").Href($"{_linkedin}"));
-                }
-
-                if (!string.IsNullOrEmpty(_github))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/github.svg\">").Href($"{_github}"));
-                }
-
-                if (!string.IsNullOrEmpty(_facebook))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/facebook.svg\">").Href($"{_facebook}"));
-                }
-
-                if (!string.IsNullOrEmpty(_instagram))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/instagram.svg\">").Href($"{_instagram}"));
-                }
-
-                if (!string.IsNullOrEmpty(_youtube))
-                {
-                    div.Add(new A("<img src=\"/foundation-theme/socialIcons/youtube.svg\">").Href($"{_youtube}"));
+                    if (!string.IsNullOrEmpty(social.Value))
+                    {
+                        div.Add(new A($"<img src=\"/foundation-theme/socialIcons/{social.Key.ToLower()}.svg\">").Href($"{social.Value}"));
+                    }
                 }
 
                 div.Class("social-icons");
@@ -307,20 +273,17 @@ namespace Foundation
 
         private class Footer : IHtmlComponent
         {
-            private string _legalNotice;
-            private string _privacy;
+            private readonly string _legal;
+            private readonly string _privacy;
+            private readonly string _copyright;
 
-            public Footer(string legalNotice, string privacy)
+            public Footer(string legalNotice="", string privacy="", string copyright="")
             {
-                _legalNotice = legalNotice;
+                _legal = legalNotice;
                 _privacy = privacy;
+                _copyright = copyright;
             }
 
-            public Footer()
-            {
-                _legalNotice = string.Empty;
-                _privacy = string.Empty;
-            }
             public string Render()
             {
                 var footer = new StatiCSharp.HtmlComponents.Footer();
@@ -328,21 +291,27 @@ namespace Foundation
                         .Add(new Text("Generated with ❤️ using "))
                         .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCSharp")));
 
-                if (!string.IsNullOrEmpty(_legalNotice) | !string.IsNullOrEmpty(_privacy))
+                if (!string.IsNullOrEmpty(_legal) | !string.IsNullOrEmpty(_privacy))
                 {
                     var legal = new Paragraph();
                     
                     if (!string.IsNullOrEmpty(_privacy))
                     {
-                        legal.Add(new A("Datenschutz - Privacy").Href(_privacy));
+                        legal.Add(new A("Privacy").Href(_privacy));
                     }
 
-                    if (!string.IsNullOrEmpty(_legalNotice))
+                    if (!string.IsNullOrEmpty(_legal))
                     {
-                        legal.Add(new A("Impressum - Legal Notice").Href(_legalNotice).Style("padding-left: 20px"));
+                        legal.Add(new A("Legal notice").Href(_legal).Style("padding-left: 20px"));
                     }
 
                     footer.Add(legal);
+                }
+
+                if (!string.IsNullOrEmpty(_copyright))
+                {
+                    var copyright = new Paragraph($"© {_copyright}");
+                    footer.Add(copyright);
                 }
 
                 return footer.Render();

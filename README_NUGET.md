@@ -7,7 +7,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.1.0-alpha5" />
+    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.1.0-alpha6" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
@@ -44,11 +44,11 @@ To set the portrait image on the index page, provide a `me.jpg` image in the roo
 You can configure Foundation after initializing FoundationHtmlFactory to show social icons on the top right corner of your website. Set the property to the target page of your social networks.
 
 ```C#
-theme.Email = "mail@yourdomain.com";
+theme.Email = "mailto:mail@yourdomain.com";
 theme.Facebook = "https://facebook.com/yourName";
 ```
 
-Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram and Youtube.  
+Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram, YouTube and Teams.  
 
 To set legal notice and/or privacy links in the footer use:
 

@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha5-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha6-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCSharp.Theme.Foundation">
         <img src="https://img.shields.io/nuget/v/StatiCSharp.Theme.Foundation?color=orange" />
     </a>
@@ -33,7 +33,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.1.0-alpha5" />
+    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.1.0-alpha6" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
@@ -70,11 +70,11 @@ To set the portrait image on the index page, provide a `me.jpg` image in the roo
 You can configure Foundation after initializing FoundationHtmlFactory to show social icons on the top right corner of your website. Set the property to the target page of your social networks.
 
 ```C#
-theme.Email = "mail@yourdomain.com";
+theme.Email = "mailto:mail@yourdomain.com";
 theme.Facebook = "https://facebook.com/yourName";
 ```
 
-Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram and YouTube.
+Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram, YouTube and Teams.
 
  <img src="Images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
 
