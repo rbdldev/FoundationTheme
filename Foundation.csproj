@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <Version>0.1.0-alpha6</Version>
+        <Version>0.1.0-beta1</Version>
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
