@@ -44,7 +44,7 @@ To set the portrait image on the index page, provide a `me.jpg` image in the roo
 You can configure Foundation after initializing FoundationHtmlFactory to show social icons on the top right corner of your website. Set the property to the target page of your social networks.
 
 ```C#
-theme.Email = "mail@yourdomain.com";
+theme.Email = "mailto:mail@yourdomain.com";
 theme.Facebook = "https://facebook.com/yourName";
 ```
 
