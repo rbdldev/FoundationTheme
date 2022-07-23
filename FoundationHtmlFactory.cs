@@ -25,6 +25,7 @@ namespace Foundation
                     { "LinkedIn", LinkedIn },
                     { "GitHub", Github },
                     { "Facebook", Facebook },
+                    { "Instagram", Instagram },
                     { "YouTube", Youtube },
                     { "Teams", Teams }
                 };
@@ -164,7 +165,9 @@ namespace Foundation
                 {
                     if (section.ToString() is not null)
                     {
-                        NavLinks.Add(new Li(new A(section).Href($"/{section}")));
+                        // Make section name first char uppercase.
+                        string uppercaseSection = char.ToUpper(section[0]) + section.Substring(1);
+                        NavLinks.Add(new Li(new A(uppercaseSection).Href($"/{section}")));
                     }
                 }
                 return new Header(
@@ -299,7 +302,7 @@ namespace Foundation
 
                     if (!string.IsNullOrEmpty(_legal))
                     {
-                        legal.Add(new A("Legal").Href(_legal).Style("padding-left: 20px"));
+                        legal.Add(new A("Legal notice").Href(_legal).Style("padding-left: 20px"));
                     }
 
                     footer.Add(legal);
