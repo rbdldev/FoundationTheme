@@ -21,24 +21,72 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
-    <ItemGroup>
-        <None Remove="FoundationResources\foundation-theme\socialIcons\email.svg" />
-        <None Remove="FoundationResources\foundation-theme\socialIcons\facebook.svg" />
-        <None Remove="FoundationResources\foundation-theme\socialIcons\github.svg" />
-        <None Remove="FoundationResources\foundation-theme\socialIcons\instagram.svg" />
-        <None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
+	<!-- StatiC# reference -->
+	<ItemGroup>
+		<PackageReference Include="StatiCSharp" Version="0.1.0-alpha9" />
+	</ItemGroup>
+
+	
+	<!-- Fonts -->
+	<ItemGroup>
+		<None Remove="FoundationResources\foundation-theme\fonts\Inter.ttf" />
+		<None Remove="FoundationResources\foundation-theme\fonts\Inter.woff" />
+		<None Remove="FoundationResources\foundation-theme\fonts\Inter.woff2" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Content Include="FoundationResources\foundation-theme\fonts\Inter.ttf" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		
+		<Content Include="FoundationResources\foundation-theme\fonts\Inter.woff" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		
+		<Content Include="FoundationResources\foundation-theme\fonts\Inter.woff2" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
+	
+	<!-- CSS -->
+	<ItemGroup>
+		<None Remove="FoundationResources\foundation-theme\styles.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="FoundationResources\foundation-theme\styles.css" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
+	<!-- Index Hero Image -->
+	<ItemGroup>
+		<None Remove="FoundationResources\me.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="FoundationResources\me.jpg" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+    <!-- Social Icons files -->
+	<ItemGroup>
+		<None Remove="FoundationResources\foundation-theme\socialIcons\email.svg" />
+		<None Remove="FoundationResources\foundation-theme\socialIcons\facebook.svg" />
+		<None Remove="FoundationResources\foundation-theme\socialIcons\github.svg" />
+		<None Remove="FoundationResources\foundation-theme\socialIcons\instagram.svg" />
+		<None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\youtube.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\teams.svg" />
-		<None Remove="FoundationResources\me.jpg" />
-        <None Remove="FoundationResources\foundation-theme\styles.css" />
-    </ItemGroup>
-
-    <!-- StatiC# reference -->
-	<ItemGroup>
-      <PackageReference Include="StatiCSharp" Version="0.1.0-alpha9" />
-    </ItemGroup>
-
-    <!-- Output files -->
+	</ItemGroup>
+	
     <ItemGroup>
 	    <Content Include="FoundationResources\foundation-theme\socialIcons\facebook.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
@@ -73,20 +121,10 @@
 		<Content Include="FoundationResources\foundation-theme\socialIcons\teams.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-
-		<Content Include="FoundationResources\me.jpg" pack="true">
-			<PackageCopyToOutput>true</PackageCopyToOutput>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		
-	    <Content Include="FoundationResources\foundation-theme\styles.css" pack="true">
-		    <PackageCopyToOutput>true</PackageCopyToOutput>
-		    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	    </Content>
-		
+		</Content>		
     </ItemGroup>
 	
+	<!-- NuGet Readme -->
     <ItemGroup>
       <None Update="README_NUGET.md">
         <Pack>True</Pack>
