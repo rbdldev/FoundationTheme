@@ -50,6 +50,10 @@ p {
     margin-bottom: 16px;
 }
 
+img {
+    max-width: 100%;
+}
+
 
 /* Links */
 a {
