@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
     <a href="https://github.com/RolandBraunDev/StatiCSharp">
-        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.1&color=informational" />
+        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.2&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0-green?style=flat" />
@@ -61,7 +61,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 To set the portrait image on the index page, provide a `me.jpg` image in the root of your `Resources` directory.

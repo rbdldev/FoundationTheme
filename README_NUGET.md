@@ -35,7 +35,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 To set the portrait image on the index page, provide a `me.jpg` image in the root of your `Resources` directory.
