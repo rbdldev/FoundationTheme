@@ -9,6 +9,7 @@ namespace Foundation
         public string LinkedIn { get; set; } = string.Empty;
         public string Github { get; set; } = string.Empty;
         public string Facebook { get; set; } = string.Empty;
+        public string Twitter { get; set; } = string.Empty;
         public string Instagram { get; set; } = string.Empty;
         public string Youtube { get; set; } = string.Empty;
         public string Teams { get; set; } = string.Empty;
@@ -25,6 +26,7 @@ namespace Foundation
                     { "LinkedIn", LinkedIn },
                     { "GitHub", Github },
                     { "Facebook", Facebook },
+                    { "Twitter", Twitter },
                     { "Instagram", Instagram },
                     { "YouTube", Youtube },
                     { "Teams", Teams }

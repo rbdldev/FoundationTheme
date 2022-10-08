@@ -79,6 +79,7 @@
 	<ItemGroup>
 		<None Remove="FoundationResources\foundation-theme\socialIcons\email.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\facebook.svg" />
+		<None Remove="FoundationResources\foundation-theme\socialIcons\twitter.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\github.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\instagram.svg" />
 		<None Remove="FoundationResources\foundation-theme\socialIcons\linkedin.svg" />
@@ -88,6 +89,11 @@
 	
     <ItemGroup>
 	    <Content Include="FoundationResources\foundation-theme\socialIcons\facebook.svg" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+		<Content Include="FoundationResources\foundation-theme\socialIcons\twitter.svg" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
