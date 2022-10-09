@@ -75,7 +75,7 @@ theme.Email = "mailto:mail@yourdomain.com";
 theme.Facebook = "https://facebook.com/yourName";
 ```
 
-Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Instagram, YouTube and Teams.
+Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Twitter, Instagram, YouTube and Teams.
 
  <img src="Images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
 
