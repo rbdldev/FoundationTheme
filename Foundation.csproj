@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <Version>0.2.0</Version>
+        <Version>0.2.1</Version>
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
@@ -17,8 +17,7 @@
         <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>StatiC#; StatiCsharp; StatiCSharp staticsharp, theme, themes, website, template</PackageTags>
-        <PackageReleaseNotes>Foundation is now completely compatible with StatiC# 0.2.
-A social icon for Twitter was added.</PackageReleaseNotes>
+        <PackageReleaseNotes>Bugfix. Fonts were imported from Google. That's now fixed. The Inter-font is provided to the user directly by the host.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
