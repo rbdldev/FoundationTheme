@@ -4,13 +4,13 @@
 
 <p align="center">
     <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">
-        <img src="https://img.shields.io/badge/C%23-10.0-blue?style=flat" alt="C# 10.0" />
+        <img src="https://img.shields.io/badge/C%23-10.0-blue?style=flat" alt="C# 11.0" />
     </a>
     <a href="https://dotnet.microsoft.com">
-        <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
+        <img src="https://img.shields.io/badge/.NET-7.0-blueviolet?style=flat" />
     </a>
     <a href="https://github.com/RolandBraunDev/StatiCSharp">
-        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.2&color=informational" />
+        <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.3&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.2.1-green?style=flat" />
@@ -34,7 +34,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.2.1" />
+    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.3.0" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
