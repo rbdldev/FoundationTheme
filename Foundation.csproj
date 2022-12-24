@@ -9,7 +9,7 @@
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
-        <Description>A custom theme for StatiC#, a static webside generator written in C#.</Description>
+        <Description>A custom theme for StatiC#, a static website generator written in C#.</Description>
         <PackageProjectUrl>https://github.com/RolandBraunDev/FoundationTheme</PackageProjectUrl>
         <NeutralLanguage>en-US</NeutralLanguage>
         <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
@@ -17,7 +17,7 @@
         <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>StatiC#; StatiCsharp; StatiCSharp staticsharp, theme, themes, website, template</PackageTags>
-        <PackageReleaseNotes>Bugfix. Fonts were imported from Google. That's now fixed. The Inter-font is provided to the user directly by the host.</PackageReleaseNotes>
+        <PackageReleaseNotes>Foundation is now on .NET 7 and compatible with StatiC# 0.3.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
