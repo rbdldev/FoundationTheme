@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Images/Logo.png" width="400" max-width="90%" alt="StatiC#" />
+    <img src=".GitHub/Images/Logo.png" width="400" max-width="90%" alt="StatiC#" />
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@ Supports light and dark mode.
 ## Example
 
 <p align="center">
-    <img src="Images/landing_page_example.png" max-width="90%" alt="StatiC#" />
+    <img src=".GitHub/Images/landing_page_example.png" max-width="90%" alt="StatiC#" />
 </p>
 
 ## Installation
@@ -77,7 +77,7 @@ theme.Facebook = "https://facebook.com/yourName";
 
 Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Twitter, Instagram, YouTube and Teams.
 
- <img src="Images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
+ <img src=".GitHub/Images/social_icons_example.png" width="200" max-width="70%" alt="Example for social icons" />
 
 To set legal notice and/or privacy links in the footer use:
 
@@ -86,4 +86,4 @@ theme.LegalNotice = "/your/logalNoticePage";
 theme.Privacy = "/your/privacyPage";
 ```
 
-<img src="Images/legal_example.png" width="300" max-width="70%" alt="Example for legal notice" />
+<img src=".GitHub/Images/legal_example.png" width="300" max-width="70%" alt="Example for legal notice" />
