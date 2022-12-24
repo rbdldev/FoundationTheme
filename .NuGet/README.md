@@ -1,5 +1,5 @@
 # Foundation
-A theme for [StatiC#](https://www.nuget.org/packages/StatiCSharp/), a static webside generator written in C#.  
+A theme for [StatiC#](https://www.nuget.org/packages/StatiCSharp/), a static website generator written in C#.  
 Supports light and dark mode.
 
 ## Installation
