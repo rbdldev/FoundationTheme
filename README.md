@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".GitHub/Images/Logo.png" width="400" max-width="90%" alt="StatiC#" />
+    <img src=".GitHub/Images/Logo.svg" width="400" max-width="90%" alt="StatiC#" />
 </p>
 
 <p align="center">
