@@ -51,7 +51,7 @@ theme.Facebook = "https://facebook.com/yourName";
 
 Foundation currently supports social icons for E-Mail, LinkedIn, GitHub, Facebook, Twitter, Instagram, YouTube and Teams.  
 
-To set legal notice and/or privacy links in the footer use:
+To set legal notice or privacy links in the footer use:
 
 ```C#
 theme.LegalNotice = "/your/logalNoticePage";
