@@ -203,7 +203,7 @@ namespace Foundation
                 {
                     if (!string.IsNullOrEmpty(social.Value))
                     {
-                        div.Add(new A($"<img src=\"/foundation-theme/socialIcons/{social.Key.ToLower()}.svg\">").Href($"{social.Value}"));
+                        div.Add(new A($"<img src=\"/foundation-theme/socialIcons/{social.Key.ToLower()}.svg\">").Href($"{social.Value}").Target("_blank"));
                     }
                 }
 
@@ -291,7 +291,7 @@ namespace Foundation
                 var footer = new StatiCSharp.HtmlComponents.Footer();
                 footer.Add(new Paragraph()
                         .Add(new Text("Generated with ❤️ using "))
-                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCSharp")));
+                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCSharp").Target("_blank")));
 
                 if (!string.IsNullOrEmpty(_legal) | !string.IsNullOrEmpty(_privacy))
                 {
