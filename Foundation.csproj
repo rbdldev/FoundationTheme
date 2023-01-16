@@ -17,8 +17,10 @@
         <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>StatiC#; StatiCsharp; StatiCSharp staticsharp, theme, themes, website, template</PackageTags>
-        <PackageReleaseNotes>Foundation is now on .NET 7 and compatible with StatiC# 0.3.</PackageReleaseNotes>
+        <PackageReleaseNotes>Foundation is now compatible with StatiC# 0.4.
+Changed namespace.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>Icon.png</PackageIcon>
     </PropertyGroup>
 
 	<!-- StatiC# reference -->
@@ -131,6 +133,10 @@
 	
 	<!-- NuGet Readme -->
     <ItemGroup>
+      <None Include=".NuGet\Images\Icon.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
       <None Include=".NuGet\README.md">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
