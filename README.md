@@ -42,7 +42,7 @@ You can then import Foundation at the top of your `Program.cs` and inject the th
 
 ```C#
 using StatiCSharp;
-using Foundation;
+using StatiCSharp.Theme.Foundation;
 
 var myAwesomeWebsite = new Website(
     url: "https://yourdomain.com",
