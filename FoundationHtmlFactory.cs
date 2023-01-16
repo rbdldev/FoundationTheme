@@ -1,7 +1,7 @@
 ﻿using StatiCSharp.HtmlComponents;
 using StatiCSharp.Interfaces;
 
-namespace Foundation;
+namespace StatiCSharp.Theme.Foundation;
 
 public class FoundationHtmlFactory : IHtmlFactory
 {
@@ -18,9 +18,7 @@ public class FoundationHtmlFactory : IHtmlFactory
     public string Copyright { get; set; } = string.Empty;
     private Dictionary<string, string> SocialIconsMap
     {
-        get
-        {
-            return new Dictionary<string, string>()
+        get => new Dictionary<string, string>()
             {
                 { "Email", Email },
                 { "LinkedIn", LinkedIn },
@@ -31,7 +29,6 @@ public class FoundationHtmlFactory : IHtmlFactory
                 { "YouTube", Youtube },
                 { "Teams", Teams }
             };
-        }
     }
 
     public string ResourcesPath
