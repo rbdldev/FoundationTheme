@@ -23,7 +23,7 @@
 
 	<!-- StatiC# reference -->
 	<ItemGroup>
-      <PackageReference Include="StatiCSharp" Version="1.0.0" />
+      <PackageReference Include="StatiCSharp" Version="0.4.0" />
     </ItemGroup>
 	
 	<!-- Fonts -->
