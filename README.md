@@ -19,7 +19,7 @@
     </a>
 </p>
 
-A theme for [StatiC#](https://github.com/RolandBraunDev/StatiCSharp), a static website generator written in C#.  
+A theme for [StatiC#](https://github.com/RolandBraunDev/StatiCSharp), a static website generator for C# developers.  
 Supports light and dark mode.
 
 ## Example
