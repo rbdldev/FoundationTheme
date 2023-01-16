@@ -9,7 +9,7 @@
         <Authors>Roland Braun</Authors>
         <Company>Roland Braun</Company>
         <Copyright>MIT</Copyright>
-        <Description>A custom theme for StatiC#, a static website generator written in C#.</Description>
+        <Description>A custom theme for StatiC#, a static website generator for C# developers.</Description>
         <PackageProjectUrl>https://github.com/RolandBraunDev/FoundationTheme</PackageProjectUrl>
         <NeutralLanguage>en-US</NeutralLanguage>
         <PackageReadmeFile>README.md</PackageReadmeFile>
