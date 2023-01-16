@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/static/v1?label=StatiC%23&message=0.3&color=informational" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.3.0-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.4.0-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCSharp.Theme.Foundation">
         <img src="https://img.shields.io/nuget/v/StatiCSharp.Theme.Foundation?color=orange" />
     </a>
@@ -34,7 +34,7 @@ Add **Foundation** to your StatiC# project as a package reference in the .csproj
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.3.0" />
+    <PackageReference Include="StatiCSharp.Theme.Foundation" Version="0.4.0" />
 </ItemGroup>
 ``` 
 Build your project to restore packages.  
