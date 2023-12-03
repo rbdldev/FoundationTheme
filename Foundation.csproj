@@ -17,8 +17,7 @@
         <RepositoryUrl>https://github.com/RolandBraunDev/FoundationTheme</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>StatiC#; StatiCsharp; StatiCSharp staticsharp, theme, themes, website, template</PackageTags>
-        <PackageReleaseNotes>Foundation is now compatible with StatiC# 0.5. and .NET 8.
-Changed namespace.</PackageReleaseNotes>
+        <PackageReleaseNotes>Foundation is now compatible with StatiC# 0.5. and .NET 8.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>Icon.png</PackageIcon>
     </PropertyGroup>
